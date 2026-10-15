@@ -1,0 +1,67 @@
+# α1 vs α1 II appFw PID/NID 注册表差分（含移植分级）— 2026-10-12
+# kind	id	a1_name	a1m2_name	risk	level|cp_reg|action
+ONLY_A1M2	0x101f		NID_TIMESHIFT_START_PRECAP_NOTIFY	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|仅AP注册|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x1020		NID_TIMESHIFT_END_PRECAP_NOTIFY	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|仅AP注册|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x1021		NID_TIMESHIFT_START_MAINCAP_NOTIFY	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|仅AP注册|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x1022		NID_TIMESHIFT_END_MAINCAP_NOTIFY	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|仅AP注册|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ID_CONFLICT	0x20a4	NID_NOTIFY_FOCUS_BRK_EXEC_CMP	NID_BREATHING_CORRECTION_LENS_TYPE	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x20a6	NID_BREATHING_CORRECTION_LENS_TYPE	NID_XSYNC_SHUT_SPEED	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x20a7	NID_FOLLOW_FOCUS_DISTANCE_LIST	NID_NOTIFY_FOCUS_BRK_EXEC_CMP	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x20a8	NID_FOLLOW_FOCUS_POSITION_INFO	NID_FLK_SCAN	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x20a9	NID_PRESET_FOCUS_ZOOM_POSITION	NID_EXPAND_FOCUS_CANCEL	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x20aa	NID_PRESET_FOCUS_ZOOM_STATUS	NID_DEFOCUS_CONTROL_RESOLUTION	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x20ab	NID_XSYNC_SHUT_SPEED	NID_FOLLOW_FOCUS_DISTANCE_LIST	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x20ac	NID_PRESET_FOCUS_ZOOM_SPEC	NID_FOLLOW_FOCUS_POSITION_INFO	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ONLY_A1M2	0x20ad		NID_EFRAMING_FOLLOW_ASSIST_STATUS	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|仅AP注册|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ID_CONFLICT	0x20ae	NID_IMAGER_EFUSE	NID_OSPI_ERROR	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ONLY_A1M2	0x20af		NID_FLASH_MANUAL_LEVEL_LIMIT_MAX	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|仅AP注册|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x20b0		NID_MANUAL_FLASH_SHORTAGE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|仅AP注册|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x20b1		NID_PRESET_FOCUS_ZOOM_POSITION	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|仅AP注册|镜头/对焦辅助-同上,优先级次之
+ONLY_A1M2	0x20b2		NID_PRESET_FOCUS_ZOOM_STATUS	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|仅AP注册|镜头/对焦辅助-同上,优先级次之
+ONLY_A1M2	0x20b3		NID_PRESET_FOCUS_ZOOM_SPEC	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|仅AP注册|镜头/对焦辅助-同上,优先级次之
+ONLY_A1M2	0x414c		PID_SET_BREATHING_CORRECTION	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x414d		PID_GET_LENS_POS_INFO	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|CP注册表内|镜头/对焦辅助-同上,优先级次之
+ID_CONFLICT	0x414e	PID_SET_MF_DRIVE_IN_MOVIE_AF	PID_SET_PRESET_FOCUS_ZOOM_POS	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x414f	PID_SET_BREATHING_CORRECTION	PID_SET_EE_FRAME_RATE_MODE_BY_UVC	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x4150	PID_SET_FOLLOW_FOCUS	PID_SET_MF_DRIVE_IN_MOVIE_AF	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ID_CONFLICT	0x4151	PID_GET_LENS_POS_INFO	PID_SET_FLASH_SHUT_SPEED	★ID重编号冲突: 同号不同义,换cpapp时必错位	CONFLICT/ONLY_A1-见risk列
+ONLY_A1	0x4152	PID_SET_PRESET_FOCUS_ZOOM_POS		α1 II cpapp不会发送(α1独有,低风险)	CONFLICT/ONLY_A1-见risk列
+ONLY_A1	0x4153	PID_SET_PRESET_FOCUS_ZOOM		α1 II cpapp不会发送(α1独有,低风险)	CONFLICT/ONLY_A1-见risk列
+ONLY_A1	0x4154	PID_SET_REMOTE_ZOOM		α1 II cpapp不会发送(α1独有,低风险)	CONFLICT/ONLY_A1-见risk列
+ONLY_A1	0x4155	PID_SET_REMOTE_FOCUS		α1 II cpapp不会发送(α1独有,低风险)	CONFLICT/ONLY_A1-见risk列
+ONLY_A1	0x4156	PID_SET_FLASH_SHUT_SPEED		α1 II cpapp不会发送(α1独有,低风险)	CONFLICT/ONLY_A1-见risk列
+ONLY_A1	0x4157	PID_SET_ENABLE_SEND_KEY_INFRA_REMOTE		α1 II cpapp不会发送(α1独有,低风险)	CONFLICT/ONLY_A1-见risk列
+ONLY_A1	0x4158	PID_SET_DISABLE_SEND_KEY_INFRA_REMOTE		α1 II cpapp不会发送(α1独有,低风险)	CONFLICT/ONLY_A1-见risk列
+ONLY_A1M2	0x415b		PID_SET_MF_DRIVE_IN_STILL_AF	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x415f		PID_SET_DETECTION_SETTING	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x4160		PID_GET_DISPLAY_POSITION	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x4161		PID_SET_DEFOCUS_CONTROL_POSITION	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x4162		PID_SET_BACKGROUND_DEFOCUS_CUSTOMIZE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x4163		PID_SET_AUTO_CUSTOMIZE_EE_EFFECT	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	D|CP注册表内|显示/视频族-多为appFw内部消费,换cpapp不影响
+ONLY_A1M2	0x4164		PID_SET_ANAMO_DESQUEEZE_SCALE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	D|CP注册表内|显示/视频族-多为appFw内部消费,换cpapp不影响
+ONLY_A1M2	0x4165		PID_SET_EFRAMING	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	D|CP注册表内|显示/视频族-多为appFw内部消费,换cpapp不影响
+ONLY_A1M2	0x4166		PID_SET_MOVIE_LETTER_BOX	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	D|CP注册表内|显示/视频族-多为appFw内部消费,换cpapp不影响
+ONLY_A1M2	0x4167		PID_SET_ISCN_LOCK_MODE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x4168		PID_SET_EXPOSURE_POINT	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4169		PID_SET_EXT_VIDEOLIGHT_REC_LINK_MODE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x416a		PID_SET_PRELIGHTING_START_END	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x416b		PID_SET_FOLLOW_FOCUS	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x416c		PID_SET_FOLLOW_ASSIST_LOCK	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x416d		PID_SET_REMOTE_ZOOM	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|CP注册表内|镜头/对焦辅助-同上,优先级次之
+ONLY_A1M2	0x416e		PID_SET_REMOTE_FOCUS	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|CP注册表内|镜头/对焦辅助-同上,优先级次之
+ONLY_A1M2	0x416f		PID_SET_BOOST_SHOOTING	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4170		PID_SET_BOOST_FPS	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4171		PID_SET_LENS_2G_DIST_DATA	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|CP注册表内|镜头/对焦辅助-同上,优先级次之
+ONLY_A1M2	0x4172		PID_SET_TIMESHIFT_SETTING	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4173		PID_SET_TIMESHIFT_SHOOTING	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4174		PID_SET_SYNCHRO_TERMINAL_MODE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4175		PID_REQ_FLASH_MANUAL_LEVEL_LIMIT_MAX	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4176		PID_SET_FLASH_TIMING_SHIFT	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4177		PID_SET_RELEASE_TIME_LAG_MODE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4178		PID_SET_COMPUTATIONAL_RAW	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4179		PID_SET_PRESET_FOCUS_ZOOM	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	B|CP注册表内|镜头/对焦辅助-同上,优先级次之
+ONLY_A1M2	0x417a		PID_SET_TIMELAPSE_MODE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x417b		PID_SET_AF_SPEED_SENSIBILITY	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x417c		PID_SET_SILENT_MODE	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险
+ONLY_A1M2	0x4180		PID_SET_DETECTION_AUTO_TARGET	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	A|CP注册表内|AI对焦/检测族-换cpapp时须在α1 appFw补注册或确认降级
+ONLY_A1M2	0x4182		PID_SET_STEP_CROP	α1 appFw无此注册: α1 II cpapp发出会被丢弃/未知	C|CP注册表内|α1 II新增拍摄功能-α1菜单无入口不会发起,休眠低风险

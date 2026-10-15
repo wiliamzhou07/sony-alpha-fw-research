@@ -1,0 +1,28 @@
+firmware.tar_unpacked/0300_partconf/partinf.conf	3986	Date:2019/01/25; Date:2024/05/16
+firmware.tar_unpacked/0700_part_image/dev/nflasha7	5222400	Date:2024-07-17
+firmware.tar_unpacked/0700_part_image/dev/nflasha8	26520576	Date:2018/11/01; Date:2024/04/10; Ver:Ver.00.02; Ver:Ver.00.16
+firmware.tar_unpacked/0700_part_image/dev/nflasha3	32540672	Date:2024-07-17; Ver:Ver.1.0.0
+firmware.tar_unpacked/0700_part_image/dev/nflasha3_unpacked/initrd.img	5218304	Date:2024-07-17
+firmware.tar_unpacked/0700_part_image/dev/nflasha3_unpacked/av-cam.bin	13489656	Ver:Ver.1.0.0
+firmware.tar_unpacked/0700_part_image/dev/nflasha3_unpacked/initrd.img_unpacked/bin/busybox	423000	Date:2024-07-17
+firmware.tar_unpacked/0700_part_image/dev/nflasha8_unpacked/cpapp-b.bin	19190024	Date:2018/11/01
+firmware.tar_unpacked/0700_part_image/dev/nflasha8_unpacked/DmmCfg.bin	44148	Date:2024/04/10
+firmware.tar_unpacked/0700_part_image/dev/nflasha8_unpacked/mini_ldr.bin	40752	Ver:Ver.00.02
+firmware.tar_unpacked/0700_part_image/dev/nflasha8_unpacked/loader_spi.bin	39184	Ver:Ver.00.16
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/codec/vcd_firmware_imola2.bin	10934476	Date:2024/03/08
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/codec/vcd_firmware.bin	5445340	Date:2018/01/24
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraCCPF.so	1212696	Date:2020-11-05; Date:2021-01-04; Date:2021-11-04; Date:2021-12-04; Date:2022-11-04; Date:2023-11-05
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libpcre.so.1.2.12	239648	Date:2020-02-12
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so	3550112	Date:2020-02-11; Date:2022-07-07
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraFsys.so	708568	Ver:Ver1.6
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraBluetoothCore.so	267584	Date:2019-01-01
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/gstplugin/libgstcoreelements.so	368568	Date:2022-02-02
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/gstplugin/libgstmpegtsmux.so	85672	Date:2022-02-02
+firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/gstplugin/libgstsrt.so	60736	Date:2022-02-02
+firmware.tar_unpacked/0700_part_image/dev/nflasha7_unpacked/bin/busybox	423000	Date:2024-07-17
+firmware.tar_unpacked/0800_appli/setting/DmmCfg.bin	70728	Date:2025/06/16
+firmware.tar_unpacked/0750_nor_loader/loader_nor.tar	102400	Ver:Ver.00.70
+firmware.tar_unpacked/0750_nor_loader/loader_nor.tar_unpacked/loader_nor.bin	94464	Ver:Ver.00.70
+firmware.tar_unpacked/0650_prfile/PMBP/LICENSE/ncurses.txt	1446	Date:2020/02/08
+firmware.tar_unpacked/0650_prfile/PMBP/LICENSE/openssh.txt	15190	Date:2017/04/30
+firmware.tar_unpacked/0100_config/mount.conf	1276	Date:2019/01/25; Date:2024/05/16

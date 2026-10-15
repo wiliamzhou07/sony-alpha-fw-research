@@ -1,0 +1,100 @@
+a1: 168538 函数, 10425 串, 872 cpp 路径
+a1m2: 175481 函数, 10974 串, 909 cpp 路径
+
+=== a1m2 新增字符串 922 ===
+  + %1d.%02d
+  + %c%03d<CamPos%c>
+  + %s - end
+  + %s - start
+  + %s invalid media_id:0x%X
+  + %s name:%s, numOfMediaId:%d, mediaId[0]:0x%x, mediaId[1]:0x%x
+  + %s not supported. system_mode:%08x
+  + %s numOfMediaId:%d, mediaId[0]:0x%x, mediaId[1]:0x%x
+  + %s%s(%d) %s:invalid control type
+  + %s%s(%d) %s:invalid error code
+  + %s%s(%d) %s:invalid result type
+  + %s%s(%d) Aborted sequence as InfraMultiIF is not running
+  + %s%s(%d) CT_ID_ASYNC_REQ_GET_MFI_STATUS NG. cmp.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_GET_MFI_STATUS NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_GET_MFI_STATUS NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_GET_WIFI_INFO NG. cmp.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_GET_WIFI_INFO NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_GET_WIFI_INFO NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_START_FUNC NG. cmp.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_START_FUNC NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_START_FUNC NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_STOP_FUNC NG. cmp.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_STOP_FUNC NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_ASYNC_REQ_STOP_FUNC NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_DELETE_SAVED_BTC_DEV NG. cmp.ret = 0x%08X
+  + %s%s(%d) CT_ID_DELETE_SAVED_BTC_DEV NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_DELETE_SAVED_BTC_DEV NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_GET_SAVED_PAIR_HANDLE NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_GET_SAVED_PAIR_HANDLE NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_PAIRING_SLAVE_AUTH NG. cmp.ret = 0x%08X
+  + %s%s(%d) CT_ID_PAIRING_SLAVE_AUTH NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_PAIRING_SLAVE_AUTH NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_REG_SPP_EVENT_NOTIFY NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_REG_SPP_EVENT_NOTIFY NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE ARC) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE ARC) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE AUTO_POFF_TEMP) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE AUTO_POFF_TEMP) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE BITRATE) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE BITRATE) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE CODEC) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE CODEC) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE ENCRYPTION METHOD) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE ENCRYPTION METHOD) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE FRAME_RATE) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE FRAME_RATE) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE LATENCY) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE LATENCY) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE OUTPUT_QUALITY) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE OUTPUT_QUALITY) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE PORT NUMBER) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE PORT NUMBER) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE RESOLUTION) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE RESOLUTION) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE TTL) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE TTL) NG. osal_err = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE URL) NG. msg.ret = 0x%08X
+  + %s%s(%d) CT_ID_SERVER_NOTIFY_INFO(GET_RESPONSE URL) NG. osal_err = 0x%08X
+
+=== a1 独有字符串 373 (前 30) ===
+  - %s in
+  - %s invalid media_id:%d
+  - %s%s(%d) %s:sidb_Select_unique_id_without_mpr_log(%08X %08X)=%d
+  - %s%s(%d) CT_NOTIFY_INFO_TYPE_FEATURE_SUPPORT_INFO NG. msg.ret = 0x%08X
+  - %s%s(%d) CT_NOTIFY_INFO_TYPE_FEATURE_SUPPORT_INFO NG. osal_err = 0x%08X
+  - %s%s(%d) CT_NOTIFY_INFO_TYPE_LICENSE_INFO NG. msg.ret = 0x%08X
+  - %s%s(%d) CT_NOTIFY_INFO_TYPE_LICENSE_INFO NG. osal_err = 0x%08X
+  - %s%s(%d) Calc Rotate Target 1:1 target[%d,%d %dx%d]
+  - %s%s(%d) Calc Rotate Target x:y beyond target[%d,%d %dx%d]
+  - %s%s(%d) Calc Rotate Target x:y side target[%d,%d %dx%d]
+  - %s%s(%d) Cant convert slot_id:%d
+  - %s%s(%d) Connection method %d is invalid
+  - %s%s(%d) Content [%dx%d] aspect[%d]
+  - %s%s(%d) Decode Content [%dx%d]
+  - %s%s(%d) Decode canvas[%dx%d] valid[%d,%d %dx%d] target[%d,%d %dx%d]
+  - %s%s(%d) Disp canvas[%dx%d] valid[%d,%d %dx%d] target[%d,%d %dx%d]
+  - %s%s(%d) Edit Rotate canvas[%dx%d] valid[%d,%d %dx%d] target[%d,%d %dx%d]
+  - %s%s(%d) Exec Rotate canvas[%dx%d] valid[%d,%d %dx%d] target[%d,%d %dx%d]
+  - %s%s(%d) HEIF content aspect[%d]
+  - %s%s(%d) Invalid wifiMode = 0x%08X
+  - %s%s(%d) MSGID_STREAM_PAUSE_CMD NG. osal_err = 0x%08X
+  - %s%s(%d) MSGID_STREAM_PLAY_CMD NG. osal_err = 0x%08X
+  - %s%s(%d) MSGID_UNREGISTER_NOTIFY_CMD NG. msg.Ret = 0x%08X
+  - %s%s(%d) MSGID_UNREGISTER_NOTIFY_CMD NG. osal_err = 0x%08X
+  - %s%s(%d) Normal Rotate canvas[%dx%d] valid[%d,%d %dx%d] target[%d,%d %dx%d]
+  - %s%s(%d) OUT : MSGID_REGISTER_NOTIFY_CMD NG. msg.Ret = 0x%08X
+  - %s%s(%d) OUT : MSGID_REGISTER_NOTIFY_CMD NG. osal_err = 0x%08X
+  - %s%s(%d) OUT : MSGID_START_FUNC_CMD NG. osal_err = 0x%08X
+  - %s%s(%d) OUT : MSGID_STOP_FUNC_CMD NG. osal_err = 0x%08X
+  - %s%s(%d) Override Target canvas[%dx%d] valid[%d,%d %dx%d] target[%d,%d %dx%d]
+
+=== cpp 源文件差 ===
+仅 a1m2: ['28/808.8.818.8.8.8.8.838.828/8.8.838cons/scr0262_006_controller.cpp', 'cons/scr7078_0005_presenter.cpp', 'cons/scr7181_0006_controller.cpp', 'cons/scr7258_0015_controller.cpp', 'infra_wrapper_aidictionary.cpp', 'infra_wrapper_bt_classic.cpp', 'infra_wrapper_imaging.cpp', 'infra_wrapper_mfi.cpp', 'lib_memory.cpp', 'model_beeplist_reader.cpp', 'model_network.cpp', 'sequence/sequence_connected_device_for_cloud_connection_re_arch.cpp', 'sequence/sequence_connected_pc_remote_usb_tethering_re_arch.cpp', 'sequence/sequence_connected_pc_remote_wifi_re_arch.cpp', 'sequence/sequence_connected_pc_remote_wired_lan_re_arch.cpp', 'sequence/sequence_connected_smartphone_pc_remote_re_arch.cpp', 'sequence/sequence_disable_select_on_camera_transfer_for_remote_control_re_arch.cpp', 'sequence/sequence_disconnected_pc_remote_usb_tethering_re_arch.cpp', 'sequence/sequence_disconnected_pc_remote_wifi_re_arch.cpp', 'sequence/sequence_disconnected_pc_remote_wired_lan_re_arch.cpp', 'sequence/sequence_disconnected_smartphone_pc_remote_re_arch.cpp', 'sequence/sequence_enable_select_on_camera_transfer_for_remote_control_re_arch.cpp', 'sequence/sequence_notify_base_info_ptp_event.cpp', 'sequence/sequence_notify_streaming_status_ptp_event.cpp', 'sequence/sequence_procam_ftp_update_all_cert_file_status.cpp', 'sequence/sequence_procam_ftp_update_cert_file_status.cpp', 'sequence/sequence_procam_update_all_rtmps_certificate_file_status.cpp', 'sequence/sequence_procam_update_default_rtmps_certificate_file_status.cpp', 'sequence/sequence_ptp_operation_data_set_cmp_for_set_stream_setting_list.cpp', 'sequence/sequence_ptp_operation_get_stream_setting_list.cpp', 'sequence/sequence_req_end_power_save_for_menu.cpp', 'sequence/sequence_req_start_power_save_for_menu.cpp', 'sequence/sequence_respond_for_pc_remote_pairing_request_re_arch.cpp', 'sequence/sequence_sdi1_sdi2_hdmi_connect.cpp', 'sequence/sequence_set_bluetooth_req_get_info_streaming_notify.cpp', 'sequence/sequence_set_clip_flag_in_playback.cpp', 'sequence/sequence_set_clip_flag_in_shooting.cpp', 'sequence/sequence_set_clip_flag_on_playback.cpp', 'sequence/sequence_set_clip_flag_on_shooting_screen.cpp', 'sequence/sequence_set_infra_zebra.cpp', 'sequence/sequence_start_movie_recording_raw_only.cpp', 'sequence/sequence_start_pc_remote_pairing_re_arch.cpp', 'sequence/sequence_start_pc_remote_usb_ether_re_arch.cpp', 'sequence/sequence_start_pc_remote_wifi_ap_re_arch.cpp', 'sequence/sequence_start_pc_remote_wifi_direct_re_arch.cpp', 'sequence/sequence_stop_movie_recording_raw_only.cpp', 'sequence/sequence_stop_pc_remote_pairing_re_arch.cpp', 'sequence/sequence_stop_pc_remote_usb_ether_re_arch.cpp']
+仅 a1: ['cons/s_097_001_controller.cpp', 'cons/scr7251_0001_controller.cpp', 'infra_wrapper_imaging_ipsx_tk_ot_branch.cpp', 'sequence/sequence_apply_ether_remote_setting.cpp', 'sequence/sequence_apply_tethering_remote_setting.cpp', 'sequence/sequence_apply_wifi_st_mode_remote_setting.cpp', 'sequence/sequence_ptp_get_license_info_list.cpp', 'sequence/sequence_req_end_power_save_for_movie_menu.cpp', 'sequence/sequence_req_start_power_save_for_movie_menu.cpp', 'sequence/sequence_set_clip_flag.cpp', 'sequence/sequence_start_monitoring_ip_conflict_event.cpp']

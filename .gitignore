@@ -1,0 +1,27 @@
+# --- 安全兜底：任何固件/衍生二进制严禁入库 ---
+*.DAT
+*.BIN
+*.bin
+*.nab
+*.so
+*.ko
+*.elf
+*.cpio
+*.cpio.gz
+*.npz
+BODYDATA*
+BODYDATA\ (1)*
+RQ_LIC*
+*.dtb
+decompiled/
+re_assets/
+firmware_versions/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+logs/
+*.log
+vmlinux
+*.img
+*.fw
