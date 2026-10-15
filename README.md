@@ -1,101 +1,110 @@
+**English** | [简体中文](README.zh-CN.md)
+
 # sony-alpha-fw-research
 
-Sony α1 (ILCE-1) / α1 II (ILCE-1M2) 固件逆向工程与 AI 对焦移植研究 —— 分析文档、工具与数据表。
+Firmware reverse engineering of the Sony α1 (ILCE-1) / α1 II (ILCE-1M2) and research on porting the α1 II's AI autofocus — analysis documents, tools, and data tables.
 
-> **重要声明**：本仓库**不包含、不分发任何 Sony 固件、模型或二进制文件**。
-> 全部内容为：(1) 对自行解密的官方固件做分析所得的研究文档；(2) 原创工具脚本；
-> (3) 从固件中提取的事实性数据表（注册表 / 函数索引 / 差分结果）。
-> 使用本仓库工具需自备合法获得的固件升级包。
+> **Important notice**: this repository **does not contain or distribute any Sony firmware, models, or binaries**.
+> Everything here falls into three categories: (1) research documents derived from analyzing official
+> firmware we decrypted ourselves; (2) original tooling; (3) factual data tables extracted from the
+> firmware (registries / function indexes / diff results).
+> To use the tools you must supply your own legally obtained firmware update package.
 
-## 项目概况
+## Overview
 
-研究目标：理清 α1 II 新增「AI 对焦」（人体姿态估计 + 新主体识别）的完整实现，
-评估向同平台前代旗舰 α1 移植的可行性。
+Goal: fully understand the α1 II's new "AI autofocus" (human pose estimation + new subject recognition)
+and assess whether it can be ported to the α1, the previous-flagship on the same platform.
 
-两代相机均为 CXD90057（主 SoC，4×Cortex-A35，Linux）+ CXD90058（协处理器，带 NPU）
-双芯片平台，α1 II 的差异集中在软件层 —— 这一结论由两代固件完整解密树的逐文件对比得出。
+Both cameras share the same dual-chip platform — CXD90057 (main SoC, 4× Cortex-A35, running Linux)
+plus CXD90058 (coprocessor with an NPU) — and the α1 II's differences are concentrated in the
+software layer. This conclusion comes from a file-by-file comparison of the fully decrypted
+firmware trees of both generations.
 
-### 主要成果
+### Highlights
 
-- **gen5 固件解密链路完全打通**：UFU 容器 → FDAT（AES 头 + CBC 体）解密/重打包逐字节回环一致（`tools/firmware/gen5_pack.py`）
-- **两代硬件架构完整解析**：设备树、123 个内核驱动逐个 diff、15 个芯片固件 blob 对比（`docs/hardware/`）
-- **AI 对焦全链路逆向**：CP 侧 cpapp 中识别→关键点→AF 决策的主体结构；Adam 调度器、STAPLE/ReID/人脸 ID、人眼选择、优先级判定、跨人遮挡判定、PDAF/散焦链、AE/AWB 归属（`docs/ai-af/` 16 篇）
-- **a1 ↔ a1m2 appFw 函数级差分**：多级匹配引擎链（字符串锚 → 调用图传播 → LIS 地标链 → 贪心最优对）达到 **88% 覆盖率 / ~95% 配对精度**；45 条 α1 缺失 PID 的移植风险 A/B/C/D 分级（`data/diff/`、`data/registries/`）
-- **A7M4 eMMC 转储解密**：SDM2 分区表 + AES-XTS 分区密钥推导，rootfs/usr 分区已解出并在 QEMU 实测运行（`tools/firmware/decrypt_a7m4_emmc.py`）
-- **QEMU 运行索尼固件 Linux**：通用 ARM64 内核 + 官方 rootfs → busybox shell（`tools/qemu/`）
-- **串口访问路线**：senser 服务通道桥（PTY+TCP+日志，只读设计）与 bootrom 串口引导桥（`tools/serial-bridge/`）
-- **default.nab 姿态模型格式主体破译**：权重块=NPU SRAM 镜像的结论与解析过程（`docs/ai-af/NOTES_NAB_REVERSE.md`）
+- **gen5 firmware decryption fully worked out**: UFU container → FDAT (AES header + CBC body); decrypt/repack verified byte-identical round-trip (`tools/firmware/gen5_pack.py`)
+- **Complete hardware architecture analysis**: device tree, per-driver diff of 123 kernel modules, comparison of 15 coprocessor firmware blobs (`docs/hardware/`)
+- **Full-chain AI autofocus reverse engineering**: the recognize → keypoint → AF decision pipeline inside the CP-side `cpapp`; Adam sequencer, STAPLE/ReID/face ID, eye selection, priority judgment, human-crossing occlusion, PDAF/defocus chain, AE/AWB ownership — 16 reports (`docs/ai-af/`)
+- **Function-level a1 ↔ a1m2 appFw diff**: a multi-stage matching engine chain (string anchors → call-graph propagation → LIS landmark chains → greedy optimal pairs) reaching **88% coverage / ~95% pairing accuracy**; A/B/C/D porting-risk grading of 45 PIDs missing on the α1 (`data/diff/`, `data/registries/`)
+- **A7M4 eMMC dump decryption**: SDM2 partition table + AES-XTS key derivation; rootfs/usr partitions decrypted and verified running under QEMU (`tools/firmware/decrypt_a7m4_emmc.py`)
+- **Booting Sony's firmware Linux in QEMU**: generic ARM64 kernel + official rootfs → busybox shell (`tools/qemu/`)
+- **Serial access routes**: a senser service-channel bridge (PTY+TCP+logging, read-only by design) and a bootrom serial-boot bridge (`tools/serial-bridge/`)
+- **The default.nab pose model format largely decoded**: conclusion that weight blocks are NPU SRAM mirrors, plus the parsing process (`docs/ai-af/NOTES_NAB_REVERSE.md`)
 
-## 仓库结构
+> Note: most of the in-depth documents under `docs/` are written in Chinese; tool comments and data tables are mixed Chinese/English.
+
+## Repository layout
 
 ```
 docs/
-  overview/      项目总报告与状态档案（从 FIRMWARE_REVERSE_REPORT.md 开始读）
-  hardware/      硬件架构、驱动映射、固件分区地图、两代对比、设备树
-  ai-af/         AI 对焦逆向主文档（AF_LOGIC.md）+ 12 篇专题报告 + 枚举笔记
-  porting/       移植可行性分析、刷机防砖分析
-  keys-access/   密钥体系、密钥挖掘日志、senser 服务模式、访问路线
+  overview/      Project master report & state archive (start with FIRMWARE_REVERSE_REPORT.md)
+  hardware/      Hardware architecture, driver mapping, firmware partition map, cross-gen comparison, device tree
+  ai-af/         AI-AF main document (AF_LOGIC.md) + 12 topic reports + enum notes
+  porting/       Porting feasibility analysis, brick-safety analysis
+  keys-access/   Key derivation system, key-hunting log, senser service mode, access routes
 tools/
-  firmware/      固件解包/解密/重打包（自备官方升级包）
-  qemu/          QEMU 启动脚本
-  analysis/      Ghidra 反编译产物分析：差分引擎链、反汇编扫描器、函数提取、nab 解析
-  ghidra/        Ghidra headless 批处理脚本
-  serial-bridge/ 相机串口桥工具（GPL-3.0，见该目录 LICENSE）
+  firmware/      Firmware unpack / decrypt / repack (bring your own official update package)
+  qemu/          QEMU launch scripts
+  analysis/      Ghidra-output analysis: diff engine chain, disassembly scanners, function extraction, .nab parsing
+  ghidra/        Ghidra headless batch scripts
+  serial-bridge/ Camera serial bridge tools (GPL-3.0, see LICENSE in that directory)
 data/
-  registries/    PID/NID 属性注册表（CP 侧 + appFw 侧 + 两代差分分级）
-  fun-index/     函数→字符串引用索引（cpapp / appFw / avcam，a1 与 a1m2）
-  diff/          a1↔a1m2 appFw 函数差分最终结果（appfw_diff_summary_v9.tsv）
-  nab/           default.nab 解析产物（块表 / 权重表结构）
-  inventory/     固件树清单、ELF 审计、kmod vermagic、跨代对比
-vendor/fwtool-gen5/  fwtool.py 的 gen5 增强分支（MIT，见 vendor 内 LICENSE.txt）
+  registries/    PID/NID property registries (CP side + appFw side + cross-gen diff grading)
+  fun-index/     Function→string-reference indexes (cpapp / appFw / avcam, for a1 and a1m2)
+  diff/          Final a1↔a1m2 appFw function diff results (appfw_diff_summary_v9.tsv)
+  nab/           default.nab parsing artifacts (block tables / weight-table structure)
+  inventory/     Firmware tree inventories, ELF audits, kmod vermagic, cross-gen diff
+vendor/fwtool-gen5/  gen5-enhanced branch of fwtool.py (MIT, see LICENSE.txt inside vendor)
 ```
 
-## 快速上手（复现解密）
+## Getting started (reproducing the decryption)
 
 ```bash
-# 1) 自备官方固件升级包（BODYDATA.DAT，从索尼官网下载页按机型获取）
-# 2) 用 fwtool-gen5 解出 FDAT，再用 gen5 密钥解密
-python3 vendor/fwtool-gen5/fwtool.py unpack -f 你的升级包.exe -o outDir
-python3 tools/firmware/gen5_pack.py --help   # 解密 / 重打包
+# 1) Bring your own official firmware update package (BODYDATA.DAT, from Sony's download site)
+# 2) Extract the FDAT with fwtool-gen5, then decrypt with the gen5 keys
+python3 vendor/fwtool-gen5/fwtool.py unpack -f your_updater.exe -o outDir
+python3 tools/firmware/gen5_pack.py --help   # decrypt / repack
 
-# 3) 密钥与格式说明见 docs/keys-access/KEY_DERIVATION.md
-#    （gen5 AES 密钥由 q19032/Sony-firmware-unpacker 首先公开，本项目仅做工程化封装）
+# 3) Keys and format details: docs/keys-access/KEY_DERIVATION.md
+#    (the gen5 AES keys were first published by q19032/Sony-firmware-unpacker;
+#     this project only provides an engineered wrapper)
 ```
 
-## 文档阅读顺序建议
+## Suggested reading order
 
-1. `docs/overview/FIRMWARE_REVERSE_REPORT.md` —— 全项目汇总
-2. `docs/hardware/HARDWARE_ARCHITECTURE.md` —— 双芯片平台结论
-3. `docs/ai-af/AF_LOGIC.md` —— AI 对焦决策层主文档
-4. `docs/ai-af/REPORT_a1_a1m2_appfw_diff.md` —— 两代差分方法与结论
-5. `docs/porting/AI_AF_PORTING_FEASIBILITY.md` —— 移植可行性（含死路清单）
+1. `docs/overview/FIRMWARE_REVERSE_REPORT.md` — project-wide summary
+2. `docs/hardware/HARDWARE_ARCHITECTURE.md` — the dual-chip platform conclusion
+3. `docs/ai-af/AF_LOGIC.md` — main document on the AI-AF decision layer
+4. `docs/ai-af/REPORT_a1_a1m2_appfw_diff.md` — cross-gen diff methodology and findings
+5. `docs/porting/AI_AF_PORTING_FEASIBILITY.md` — porting feasibility (incl. dead ends)
 
-## 已确认的死路（免得重复踩坑）
+## Confirmed dead ends (so you don't repeat them)
 
-- FDAT 尾部 256 字节 RSA-2048 签名由 boot ROM 验证，**刷改固件此路不通**（错误码 0x56）
-- 国行 α1 的 senser 服务模式三条读通道被 `libsencore.so` 锁死（V1.35 起即有）
-- MSC-ext 仅只读；updater 命令在 MSC 模式不响应
-- 相机专用内核在 QEMU virt 机型起不来（内存基址/UART 不符），需用通用内核 + 官方 rootfs
+- The 256-byte RSA-2048 signature at the end of FDAT is verified by the boot ROM — **flashing modified firmware is a dead end** (error code 0x56)
+- On China-market (CN2) α1 bodies, all three senser read channels are locked by `libsencore.so` (present since V1.35)
+- MSC-ext is read-only; updater commands don't respond in MSC mode
+- The camera-specific kernel won't boot on QEMU's virt machine (memory base / UART mismatch) — use a generic kernel + the official rootfs
 
-详见 `docs/porting/BRICK_SAFETY.md` 与各文档"死路"章节。
+See `docs/porting/BRICK_SAFETY.md` and the "dead ends" sections of individual documents.
 
-## 许可证
+## License
 
-- 主仓库：**MIT**（`LICENSE`）
-- `tools/serial-bridge/`：**GPL-3.0**（运行时复用 [ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE) 的协议实现，见该目录 `LICENSE`）
-- `vendor/fwtool-gen5/`：保留上游 [ma1co/fwtool.py](https://github.com/ma1co/fwtool.py) 的 MIT 许可证
+- Main repository: **MIT** (`LICENSE`)
+- `tools/serial-bridge/`: **GPL-3.0** (reuses the protocol implementation of [ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE) at runtime, see `LICENSE` in that directory)
+- `vendor/fwtool-gen5/`: retains the MIT license of upstream [ma1co/fwtool.py](https://github.com/ma1co/fwtool.py)
 
-## 致谢
+## Credits
 
-- [q19032/Sony-firmware-unpacker](https://github.com/q19032/Sony-firmware-unpacker) —— gen5 AES 密钥
-- [ma1co/fwtool.py](https://github.com/ma1co/fwtool.py) —— 固件解包基础
-- [ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE) —— senser/PMCA 协议实现
-- [DavidBuchanan314/ILCE-7M4-RE](https://github.com/DavidBuchanan314/ILCE-7M4-RE) —— A7M4 bootrom 串口引导路线（本项目的 A7M4_ROUTE 即基于此）
-- [whc2001/SonyMultiPortRemoteControl](https://github.com/whc2001/SonyMultiPortRemoteControl) —— Multi 口遥控协议参考
+- [q19032/Sony-firmware-unpacker](https://github.com/q19032/Sony-firmware-unpacker) — the gen5 AES keys
+- [ma1co/fwtool.py](https://github.com/ma1co/fwtool.py) — the firmware unpacking foundation
+- [ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE) — senser/PMCA protocol implementation
+- [DavidBuchanan314/ILCE-7M4-RE](https://github.com/DavidBuchanan314/ILCE-7M4-RE) — the A7M4 bootrom serial-boot route (this project's A7M4_ROUTE builds on it)
+- [whc2001/SonyMultiPortRemoteControl](https://github.com/whc2001/SonyMultiPortRemoteControl) — Multi-port remote-control protocol reference
 
-## 免责声明
+## Disclaimer
 
-本项目仅供**安全研究、互操作性研究与个人学习**使用。仓库不含任何 Sony 版权材料；
-文中与工具内出现的加密密钥均为社区已公开信息。对相机固件的一切写入操作（刷机）
-存在变砖风险，本文档中的相关分析不构成操作建议，使用者自行承担全部风险。
-与 Sony Corporation 无任何关联。
+This project is provided for **security research, interoperability research, and personal learning** only.
+The repository contains no copyrighted Sony material; all encryption keys appearing in the documents
+and tools were already public community knowledge. Any write operation against camera firmware
+(flashing) carries a brick risk; the analyses here do not constitute operational advice, and you assume
+all risk. Not affiliated with Sony Corporation.
